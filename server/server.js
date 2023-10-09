@@ -8,4 +8,4 @@ app.post('/user/signup',(req,res,next)=>{
     console.log(req.body)
     res.json({reponse:'POST Request Successfull'})
 })
-app.listen(9000,()=>{console.log('SERVER RUNNING AT PORT 9000')})
+app.listen(9000,()=>{console.log('SERVER RUNNING AT PORT 9000')});
