@@ -18,7 +18,12 @@ const Signup = () => {
         }
         try{
             const req=await axios.post('http://localhost:9000/user/signup',formData)
-            console.log(req.data)
+            if(req.data.response==='Already Exists'){
+              alert('User Already Exists')
+            }
+            else{
+              console.log(req.data)
+            }
         }
         catch(err){
             console.log(err)
