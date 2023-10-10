@@ -17,11 +17,21 @@ const Login = (props) => {
 
     try{
         const req=await axios.post('http://localhost:9000/user/login',formData)
-        console.log(req.data)
+        if(req.data.message==='User Login Successfull'){
+          alert('User Successfull Logged In')
+        }
     }
     catch(err){
-      alert(err.message)
-      console.log(err.response)
+      if(err.message==='Request failed with status code 401'){
+        alert('Incorrect Password')
+      }
+      else if(err.message==='Request failed with status code 404'){
+        alert('Email Does Not Exist')
+      }
+      else{
+        alert(err.message)
+        console.log(err)
+      }
     }
   };
   return (

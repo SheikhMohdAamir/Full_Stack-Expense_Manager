@@ -35,13 +35,13 @@ app.post("/user/login", async(req, res, next) => {
     where:{email:email}
   })
   if(findUserEmail===null){
-    return res.json({message:"Email Does Not Exist"})
+    return res.status(404).json({message:"Email Does Not Exist"})
   }
   else if(password!==findUserEmail.dataValues.password){
-    return res.json({message:"Incorrect Password"})
+    return res.status(401).json({message:"Incorrect Password"})
   }
   else{
-    res.status(201).json({ message: "Logged In" });
+    res.status(201).json({ message: "User Login Successfull" });
   }
   
 });
@@ -55,4 +55,4 @@ sequelize
   })
   .catch((err) => {
     console.log(err);
-  });
+  })
