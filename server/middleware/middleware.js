@@ -1,5 +1,5 @@
 const jwt=require('jsonwebtoken')
-const userTable=require('../userTable')
+const userTable=require('../table/userTable')
 
 const authenticate=async(req,res,next)=>{
     try{
@@ -19,4 +19,4 @@ const authenticate=async(req,res,next)=>{
     }
 }
 
-module.exports=authenticate
+module.exports=authenticate;
