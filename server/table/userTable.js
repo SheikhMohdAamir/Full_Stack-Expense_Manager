@@ -23,6 +23,10 @@ const userTable = sequelize.define("users", {
   ispremium: {
     type: DataTypes.BOOLEAN,
   },
+  totalexpense: {
+    type: DataTypes.INTEGER,
+    defaultValue:0
+  },
 });
 
 module.exports = userTable;
