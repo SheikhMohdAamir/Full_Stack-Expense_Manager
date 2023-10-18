@@ -64,11 +64,11 @@ const ExpenseForm = () => {
       console.log(err);
     }
   };
-  const deletHandler = async (id) => {
+  const deletHandler = async (id,amount) => {
     try {
       const req = await axios.post(
         "http://localhost:9000/home/delete",
-        { id },
+        { id, amount },
         { headers: { Authorization: localStorage.getItem("token") } }
       );
       console.log(req);
@@ -216,7 +216,7 @@ const ExpenseForm = () => {
                     variant="danger"
                     type="button"
                     size="sm"
-                    onClick={() => deletHandler(i.id)}
+                    onClick={() => deletHandler(i.id,i.amount)}
                   >
                     Delete
                   </Button>
